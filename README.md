@@ -119,3 +119,24 @@ export default function me(state: SendbloomData.MeProfile, action) {
   }
 }
 ```
+
+
+### Note on Scss and Webpack
+Best to add a `SCSS_PATH` so that we can refer to scss styles with absolue path.
+
+Put this into your `.env` file
+```
+SASS_PATH=./node_modules:./src:./src/styles
+```
+
+Then you can layout your common / core styles there in this folder `./src/styles`. For example if you have this file `./src/styles/_variables.scss`. You can then import it at anywhere in your react app scss file as
+
+#### SomeComponent.scss
+```
+@import '_variables';
+
+.SomeComponent{
+  &__Header{}
+  &__Body{}
+}
+```
